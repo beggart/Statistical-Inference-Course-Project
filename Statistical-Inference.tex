@@ -1,0 +1,294 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{lmodern}
+\usepackage{amsmath}
+\usepackage{ifxetex,ifluatex}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+  \usepackage{amssymb}
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={Peer-graded Assignment: Statistical Inference Course Project},
+  pdfauthor={Benjamin Eggart},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifluatex
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+
+\title{Peer-graded Assignment: Statistical Inference Course Project}
+\author{Benjamin Eggart}
+\date{1 6 2021}
+
+\begin{document}
+\maketitle
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{instructions}{%
+\subsection{Instructions}\label{instructions}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Show the sample mean and compare it to the theoretical mean of the
+  distribution.
+\item
+  Show how variable the sample is (via variance) and compare it to the
+  theoretical variance of the distribution.
+\item
+  Show that the distribution is approximately normal.
+\end{enumerate}
+
+\hypertarget{loading-libraries}{%
+\subsection{Loading Libraries}\label{loading-libraries}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(}\StringTok{"data.table"}\NormalTok{)}
+\FunctionTok{library}\NormalTok{(}\StringTok{"ggplot2"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{task}{%
+\subsection{Task}\label{task}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# set seed for reproducability}
+\FunctionTok{set.seed}\NormalTok{(}\DecValTok{31}\NormalTok{)}
+\CommentTok{\# set lambda to 0.2}
+\NormalTok{lambda }\OtherTok{\textless{}{-}} \FloatTok{0.2}
+\CommentTok{\# 40 samples}
+\NormalTok{n }\OtherTok{\textless{}{-}} \DecValTok{40}
+\CommentTok{\# 1000 simulations}
+\NormalTok{simulations }\OtherTok{\textless{}{-}} \DecValTok{1000}
+\CommentTok{\# simulate}
+\NormalTok{simulated\_exponentials }\OtherTok{\textless{}{-}} \FunctionTok{replicate}\NormalTok{(simulations, }\FunctionTok{rexp}\NormalTok{(n, lambda))}
+\CommentTok{\# calculate mean of exponentials}
+\NormalTok{means\_exponentials }\OtherTok{\textless{}{-}} \FunctionTok{apply}\NormalTok{(simulated\_exponentials, }\DecValTok{2}\NormalTok{, mean)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{question-1}{%
+\subsection{Question 1}\label{question-1}}
+
+Show where the distribution is centered at and compare it to the
+theoretical center of the distribution.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{analytical\_mean }\OtherTok{\textless{}{-}} \FunctionTok{mean}\NormalTok{(means\_exponentials)}
+\NormalTok{analytical\_mean}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 4.993867
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# analytical mean}
+\NormalTok{theory\_mean }\OtherTok{\textless{}{-}} \DecValTok{1}\SpecialCharTok{/}\NormalTok{lambda}
+\NormalTok{theory\_mean}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 5
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# visualization}
+\FunctionTok{hist}\NormalTok{(means\_exponentials, }\AttributeTok{xlab =} \StringTok{"mean"}\NormalTok{, }\AttributeTok{main =} \StringTok{"Exponential Function Simulations"}\NormalTok{)}
+\FunctionTok{abline}\NormalTok{(}\AttributeTok{v =}\NormalTok{ analytical\_mean, }\AttributeTok{col =} \StringTok{"red"}\NormalTok{)}
+\FunctionTok{abline}\NormalTok{(}\AttributeTok{v =}\NormalTok{ theory\_mean, }\AttributeTok{col =} \StringTok{"orange"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Statistical-Inference_files/figure-latex/unnamed-chunk-3-1.pdf}
+
+The analytics mean is 4.993867 the theoretical mean 5. The center of
+distribution of averages of 40 exponentials is very close to the
+theoretical center of the distribution.
+
+\hypertarget{question-2}{%
+\subsection{Question 2}\label{question-2}}
+
+Show how variable it is and compare it to the theoretical variance of
+the distribution..
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# standard deviation of distribution}
+\NormalTok{standard\_deviation\_dist }\OtherTok{\textless{}{-}} \FunctionTok{sd}\NormalTok{(means\_exponentials)}
+\NormalTok{standard\_deviation\_dist}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.7931608
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# standard deviation from analytical expression}
+\NormalTok{standard\_deviation\_theory }\OtherTok{\textless{}{-}}\NormalTok{ (}\DecValTok{1}\SpecialCharTok{/}\NormalTok{lambda)}\SpecialCharTok{/}\FunctionTok{sqrt}\NormalTok{(n)}
+\NormalTok{standard\_deviation\_theory}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.7905694
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# variance of distribution}
+\NormalTok{variance\_dist }\OtherTok{\textless{}{-}}\NormalTok{ standard\_deviation\_dist}\SpecialCharTok{\^{}}\DecValTok{2}
+\NormalTok{variance\_dist}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.6291041
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# variance from analytical expression}
+\NormalTok{variance\_theory }\OtherTok{\textless{}{-}}\NormalTok{ ((}\DecValTok{1}\SpecialCharTok{/}\NormalTok{lambda)}\SpecialCharTok{*}\NormalTok{(}\DecValTok{1}\SpecialCharTok{/}\FunctionTok{sqrt}\NormalTok{(n)))}\SpecialCharTok{\^{}}\DecValTok{2}
+\NormalTok{variance\_theory}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.625
+\end{verbatim}
+
+Standard Deviation of the distribution is 0.7931608 with the theoretical
+SD calculated as 0.7905694. The Theoretical variance is calculated as
+((1 / ??) * (1/???n))2 = 0.625. The actual variance of the distribution
+is 0.6291041
+
+\hypertarget{question-3}{%
+\subsection{Question 3}\label{question-3}}
+
+Show that the distribution is approximately normal.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{xfit }\OtherTok{\textless{}{-}} \FunctionTok{seq}\NormalTok{(}\FunctionTok{min}\NormalTok{(means\_exponentials), }\FunctionTok{max}\NormalTok{(means\_exponentials), }\AttributeTok{length=}\DecValTok{100}\NormalTok{)}
+\NormalTok{yfit }\OtherTok{\textless{}{-}} \FunctionTok{dnorm}\NormalTok{(xfit, }\AttributeTok{mean=}\DecValTok{1}\SpecialCharTok{/}\NormalTok{lambda, }\AttributeTok{sd=}\NormalTok{(}\DecValTok{1}\SpecialCharTok{/}\NormalTok{lambda}\SpecialCharTok{/}\FunctionTok{sqrt}\NormalTok{(n)))}
+\FunctionTok{hist}\NormalTok{(means\_exponentials,}\AttributeTok{breaks=}\NormalTok{n,}\AttributeTok{prob=}\NormalTok{T,}\AttributeTok{col=}\StringTok{"orange"}\NormalTok{,}\AttributeTok{xlab =} \StringTok{"means"}\NormalTok{,}\AttributeTok{main=}\StringTok{"Density of means"}\NormalTok{,}\AttributeTok{ylab=}\StringTok{"density"}\NormalTok{)}
+\FunctionTok{lines}\NormalTok{(xfit, yfit, }\AttributeTok{pch=}\DecValTok{22}\NormalTok{, }\AttributeTok{col=}\StringTok{"black"}\NormalTok{, }\AttributeTok{lty=}\DecValTok{5}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Statistical-Inference_files/figure-latex/unnamed-chunk-8-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# compare the distribution of averages of 40 exponentials to a normal distribution}
+\FunctionTok{qqnorm}\NormalTok{(means\_exponentials)}
+\FunctionTok{qqline}\NormalTok{(means\_exponentials, }\AttributeTok{col =} \DecValTok{2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Statistical-Inference_files/figure-latex/unnamed-chunk-9-1.pdf}
+
+Due to Due to the central limit theorem (CLT), the distribution of
+averages of 40 exponentials is very close to a normal distribution.
+
+\end{document}
